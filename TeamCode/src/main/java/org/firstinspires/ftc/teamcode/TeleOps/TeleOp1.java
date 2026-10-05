@@ -14,8 +14,8 @@ import org.firstinspires.ftc.teamcode.Subsystems.shooterSubsystem;
 @TeleOp(name = "RoboCentric TeleOp")
 public class TeleOp1 extends OpMode {
 
-    private intake intake;
-
+    private IntakeSubsystem intake;
+    private shooterSubsystem shooter;
 
     private Follower follower;
     @Override
@@ -38,10 +38,21 @@ public class TeleOp1 extends OpMode {
         );
 
         if (gamepad2.aWasPressed()){
-
+            intake.setPower(1);
         }
 
+        if (gamepad2.aWasReleased()){
+            intake.setPower(0);
+        }
 
+        if (gamepad2.bWasPressed()){
+            shooter.setVelocity(200);
+        }
+
+        if (gamepad2.bWasReleased()){
+            shooter.setVelocity(0);
+        }
+        
 
         follower.manual(powers);
         follower.update();
