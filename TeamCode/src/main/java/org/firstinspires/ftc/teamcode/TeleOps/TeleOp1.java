@@ -26,6 +26,8 @@ public class TeleOp1 extends OpMode {
     @Override
     public void init() {
         follower = Constants.create(hardwareMap);
+        intake = new IntakeSubsystem(hardwareMap);
+        shooter = new shooterSubsystem(hardwareMap);
     }
 
     @Override
@@ -52,7 +54,7 @@ public class TeleOp1 extends OpMode {
         if (gamepad2.bWasReleased()){
             shooter.setVelocity(0);
         }
-        
+
 
         follower.manual(powers);
         follower.update();

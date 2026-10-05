@@ -65,12 +65,12 @@ public class oliviaauto extends OpMode {
     private Command autoRoutine() {
         return sequential(
                 follow(follower, path1()),
-                follow(follower, path2())
+                follow(follower, path2()),
                 follow(follower, path3()),
                 follow(follower, path4()),
-                follow(follower, path5())
+                follow(follower, path5()),
                 follow(follower, path6()),
-                follow(follower, path7()),
+                follow(follower, path7())
 
                 // Addmechanism commands here.
 
