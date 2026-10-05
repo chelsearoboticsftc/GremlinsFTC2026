@@ -13,7 +13,7 @@ public class shooterSubsystem {
     DcMotorEx nShooter;
     DcMotorEx pShooter;
 
-    public shooterSubsystem(HardwareMap hardwaremap) {
+    public shooterSubsystem(HardwareMap hardwareMap) {
         this.nShooter = hardwareMap.get(DcMotorEx.class, "nShooter");
         this.pShooter = hardwareMap.get(DcMotorEx.class, "pShooter");
 
