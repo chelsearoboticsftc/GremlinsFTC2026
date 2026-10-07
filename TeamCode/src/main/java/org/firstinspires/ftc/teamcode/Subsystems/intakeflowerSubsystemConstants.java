@@ -2,16 +2,17 @@ package org.firstinspires.ftc.teamcode.Subsystems;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Servo;
 
 public class intakeflowerSubsystemConstants {
 
-    public static final DcMotor.ZeroPowerBehavior LEFT_SERVO_ZERO_POWER_BEHAVIOR = DcMotor.ZeroPowerBehavior.BRAKE;
-
-    public static final DcMotor.ZeroPowerBehavior RIGHT_SERVO_ZERO_POWER_BEHAVIOR = DcMotor.ZeroPowerBehavior.BRAKE;
-
-    public static final DcMotorSimple.Direction LEFT_SERVO_DIRECTION = DcMotorSimple.Direction.FORWARD;
-    public static final DcMotorSimple.Direction RIGHT_SERVO_DIRECTION = DcMotorSimple.Direction.REVERSE;}
-
+//    public static final Servo.ZeroPostitionBehavior LEFT_SERVO_ZERO_POWER_BEHAVIOR = Servo.ZeroPostitionBehavior.BRAKE;
+//
+//    public static final Servo.ZeroPostitionBehavior RIGHT_SERVO_ZERO_POWER_BEHAVIOR = Servo.ZeroPostitionBehavior.BRAKE;
+//    public static final ServoSimple.Direction LEFT_SERVO_DIRECTION = ServoSimple.Direction.FORWARD;
+//    public static final ServoSimple.Direction RIGHT_SERVO_DIRECTION = ServoSimple.Direction.REVERSE;
+    }
+//
 
 
 

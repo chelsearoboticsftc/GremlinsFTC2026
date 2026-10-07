@@ -2,27 +2,23 @@ package org.firstinspires.ftc.teamcode.Subsystems;
 
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
 
 public class intakeflowerSubsystem {
-    DcMotorEx leftServo;
-    DcMotorEx rightServo;
+    Servo leftServo;
+    Servo rightServo;
 
     public intakeflowerSubsystem(HardwareMap hardwareMap) {
 
-        this.leftServo = hardwareMap.get(DcMotorEx.class, "leftServo");
-        this.rightServo = hardwareMap.get(DcMotorEx.class, "rightServo");
+        this.leftServo = hardwareMap.get(Servo.class, "leftServo");
+        this.rightServo = hardwareMap.get(Servo.class, "rightServo");
 
-        leftServo.setZeroPowerBehavior(intakeflowerSubsystemConstants.LEFT_SERVO_ZERO_POWER_BEHAVIOR);
-        rightServo.setZeroPowerBehavior(intakeflowerSubsystemConstants.RIGHT_SERVO_ZERO_POWER_BEHAVIOR);
-
-        leftServo.setDirection(intakeflowerSubsystemConstants.LEFT_SERVO_DIRECTION);
-
-        rightServo.setDirection(intakeflowerSubsystemConstants.RIGHT_SERVO_DIRECTION);
+     
     }
 
-    public void setPower(double power) {
-        leftServo.setPower(power);
-        rightServo.setPower(power);
+    public void setPostition(double postition) {
+        leftServo.setPosition(postition);
+        rightServo.setPosition(postition);
 
     }
 }
