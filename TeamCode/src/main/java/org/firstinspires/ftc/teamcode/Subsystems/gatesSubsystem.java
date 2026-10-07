@@ -44,9 +44,9 @@ public class gatesSubsystem {
 
         //Example code defining a DcMotor object to a motor in the config called "motorName"
         this.pollenR = hardwareMap.get(Servo.class,"pollenR");
-        this.pollenL = hardwareMap.get(Servo.class,"pollenl");
+        this.pollenL = hardwareMap.get(Servo.class,"pollenL");
         this.nectarR = hardwareMap.get(Servo.class,"nectarR");
-        this.nectarL = hardwareMap.get(Servo.class,"nectarR");
+        this.nectarL = hardwareMap.get(Servo.class,"nectarL");
 
 
         //This defines the behavior at zero power (brake or coast)

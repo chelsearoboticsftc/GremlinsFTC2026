@@ -10,12 +10,16 @@ import com.pedropathing.drivetrain.DrivePowers;
 import com.pedropathing.follower.ManualDrive;
 import org.firstinspires.ftc.teamcode.Subsystems.IntakeSubsystem;
 import org.firstinspires.ftc.teamcode.Subsystems.shooterSubsystem;
+import org.firstinspires.ftc.teamcode.Subsystems.gatesSubsystem;
 
 @TeleOp(name = "RoboCentric TeleOp")
 public class TeleOp1 extends OpMode {
 
     private IntakeSubsystem intake;
     private shooterSubsystem shooter;
+
+    private gatesSubsystem gateServo;
+
 
     private Follower follower;
     @Override
@@ -28,6 +32,7 @@ public class TeleOp1 extends OpMode {
         follower = Constants.create(hardwareMap);
         intake = new IntakeSubsystem(hardwareMap);
         shooter = new shooterSubsystem(hardwareMap);
+        gateServo = new gatesSubsystem(hardwareMap);
     }
 
     @Override
@@ -53,6 +58,14 @@ public class TeleOp1 extends OpMode {
 
         if (gamepad2.bWasReleased()){
             shooter.setVelocity(0);
+        }
+
+        if (gamepad2.rightBumperWasPressed()){
+            gateServo.setServoTarget();
+        }
+
+        if (gamepad2.rightBumperWasReleased()){
+            gateServo.setServoTarget();
         }
 
 
