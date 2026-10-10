@@ -32,7 +32,7 @@ public class gatesSubsystem {
 
     private boolean servoSet = true;
 
-    public gatesSubsystem(HardwareMap hardwareMap){
+    public gatesSubsystem(HardwareMap hardwareMap) {
         //Constructor for the SampleSubsystem class.  This code is called everytime you create
         //an object of this class type.  Rename to match your class name.
 
@@ -43,49 +43,10 @@ public class gatesSubsystem {
         //configuration exactly.  This is the connection with the Control Hub Config
 
         //Example code defining a DcMotor object to a motor in the config called "motorName"
-        this.pollenR = hardwareMap.get(Servo.class,"pollenR");
-        this.pollenL = hardwareMap.get(Servo.class,"pollenL");
-        this.nectarR = hardwareMap.get(Servo.class,"nectarR");
-        this.nectarL = hardwareMap.get(Servo.class,"nectarL");
-
-
-        //This defines the behavior at zero power (brake or coast)
-        motorName.setZeroPowerBehavior(SampleSubsystemConstants.MOTOR_NAME_ZERO_POWER_BEHAVIOR);
-
-        //This defines the motor direction (forward or reversed)
-        motorName.setDirection(SampleSubsystemConstants.MOTOR_NAME_DIRECTION);
-
-        /* This defines the motor velocity PIDF gains.  Velocity PIDF values determine control    *
-         * around a target velocity (setTargetVelocity) OR how fast the system responds to a      *
-         * change in set position (setTargetPosition).                                            */
-        motorName.setVelocityPIDFCoefficients(
-                SampleSubsystemConstants.MOTOR_NAME_VELOCITY_P, //Proportional Gain
-                SampleSubsystemConstants.MOTOR_NAME_VELOCITY_I, //Integral Gain
-                SampleSubsystemConstants.MOTOR_NAME_VELOCITY_D, //Derivative Gain
-                SampleSubsystemConstants.MOTOR_NAME_VELOCITY_F);//Feed Forward Gain
-
-        /* This defines the motor position PID P gain. Position control only needs P gain since   *
-         * once the system reaches the target position since once at position you're only         *
-         * disturbances in the system                                                             */
-        motorName.setPositionPIDFCoefficients(
-                SampleSubsystemConstants.MOTOR_NAME_POSITION_P);//Proportional Gain
-
-        //motorName.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-    }
-    /* Standard functions.  All Chelsea Robotics subsystems shall have init() and update() these  *
-     * methods defined. Leave empty if not needed!                                                */
-    public void init(){
-        /* Call this method at the start of your opmode logic once to execute any logic you       *
-         * want to be called on initialization. If none, leave empty!                             */
-    }
-
-    public void update(){
-        //Call this method each time your opmode logic loops (i.e. inside while(opModeIsActive()){}
-        //to execute any logic you want to be called periodically. If none, leave empty!
-
-        //setTargetPosition needs to be called once per loop to keep the REV watchdog happy
-        //motorName.setTargetPosition(motorSetPosition);
+        this.pollenR = hardwareMap.get(Servo.class, "pollenR");
+        this.pollenL = hardwareMap.get(Servo.class, "pollenL");
+        this.nectarR = hardwareMap.get(Servo.class, "nectarR");
+        this.nectarL = hardwareMap.get(Servo.class, "nectarL");
     }
 
     public void setMotorPosition(int position){
