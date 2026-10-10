@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.Autos;
 
 import static com.pedropathing.ivy.Scheduler.schedule;
 import static com.pedropathing.ivy.commands.Commands.instant;
+import static com.pedropathing.ivy.commands.Commands.waitMs;
 import static com.pedropathing.ivy.groups.Groups.sequential;
 import static com.pedropathing.ivy.pedro.PedroCommands.follow;
 
@@ -45,6 +46,8 @@ public class redAutoShoot extends OpMode {
         return sequential(
 
                 instant(() -> shooter.setVelocity(2000)),
+                waitMs(3000),
+                instant(() -> shooter.setVelocity(0)),
 
 
                 follow(follower, path1()), follow(follower, path2()));
