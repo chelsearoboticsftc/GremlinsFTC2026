@@ -21,6 +21,8 @@ import org.firstinspires.ftc.teamcode.pedro.Constants;
 public class blueAutoShoot extends OpMode {
 
     private Follower follower;
+
+
     private final PoseFactory poseFactory = PoseFactory.degrees();
 
     private final Pose start = poseFactory.of(78.8828, 8.467, 90);

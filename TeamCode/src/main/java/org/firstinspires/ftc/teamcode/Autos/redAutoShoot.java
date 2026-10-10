@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.Autos;
 
 import static com.pedropathing.ivy.Scheduler.schedule;
+import static com.pedropathing.ivy.commands.Commands.instant;
 import static com.pedropathing.ivy.groups.Groups.sequential;
 import static com.pedropathing.ivy.pedro.PedroCommands.follow;
 
@@ -15,12 +16,15 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 import org.firstinspires.ftc.teamcode.OpModeStorage;
+import org.firstinspires.ftc.teamcode.Subsystems.shooterSubsystem;
 import org.firstinspires.ftc.teamcode.pedro.Constants;
 
 @Autonomous
 public class redAutoShoot extends OpMode {
 
     private Follower follower;
+
+    private shooterSubsystem shooter;
     private final PoseFactory poseFactory = PoseFactory.degrees();
 
     private final Pose start = poseFactory.of(78.8828, 8.467, 90);
@@ -34,14 +38,16 @@ public class redAutoShoot extends OpMode {
     public Path path2() {
         return Paths.line(path1, point2).reverseTangent();
     }
-    
+
 
 
        private Command autoRoutine() {
         return sequential(
-                follow(follower, path1()),
-                follow(follower, path2())
-        );
+
+                instant(() -> shooter.setVelocity(2000)),
+
+
+                follow(follower, path1()), follow(follower, path2()));
     }
 
     @Override
