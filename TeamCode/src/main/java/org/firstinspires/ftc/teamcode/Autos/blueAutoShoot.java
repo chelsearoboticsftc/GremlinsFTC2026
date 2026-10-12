@@ -17,6 +17,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 import org.firstinspires.ftc.teamcode.OpModeStorage;
+import org.firstinspires.ftc.teamcode.Subsystems.IntakeSubsystem;
 import org.firstinspires.ftc.teamcode.Subsystems.shooterSubsystem;
 import org.firstinspires.ftc.teamcode.pedro.Constants;
 
@@ -26,20 +27,26 @@ public class blueAutoShoot extends OpMode {
     private Follower follower;
 
     private shooterSubsystem shooter;
-
+    private IntakeSubsystem intake;
 
     private final PoseFactory poseFactory = PoseFactory.degrees();
 
-    private final Pose start = poseFactory.of(78.8828, 8.467, 90);
-    private final Pose path1 = poseFactory.of(78.8828, 31.797, 180);
-    private final Pose point2 = poseFactory.of(131.5215, 31.4472, 179.6192);
+    private final Pose start = poseFactory.of(85.6447, 133.4902, 90);
+    private final Pose path1Start = poseFactory.of(85.6447, 133.4902, 270);
+    private final Pose path1 = poseFactory.of(86.2549, 111.4046, 270);
+    private final Pose point2 = poseFactory.of(113.1678, 110.5313, -1.8587);
+    private final Pose point3 = poseFactory.of(130.3569, 30.5707, 102.1323);
 
     public Path path1() {
-        return Paths.line(start, path1).linear(start, path1);
+        return Paths.line(path1Start, path1).linear(path1Start, path1);
     }
 
     public Path path2() {
-        return Paths.line(path1, point2).reverseTangent();
+        return Paths.line(path1, point2).tangent();
+    }
+
+    public Path path3() {
+        return Paths.line(point2, point3).reverseTangent();
     }
     private Command autoRoutine() {
         return sequential(
@@ -49,7 +56,9 @@ public class blueAutoShoot extends OpMode {
                 instant(() -> shooter.setVelocity(0)),
 
 
-                follow(follower, path1()), follow(follower, path2()));
+                follow(follower, path1()),
+                follow(follower, path2()),
+                follow(follower, path3()));
     }
 
     @Override
@@ -58,6 +67,8 @@ public class blueAutoShoot extends OpMode {
         follower = Constants.create(hardwareMap);
         follower.setPose(start);//sets the starting point of your Robot
         follower.update();
+        intake = new IntakeSubsystem(hardwareMap);
+        shooter = new shooterSubsystem(hardwareMap);
     }
     @Override
     public void start() {

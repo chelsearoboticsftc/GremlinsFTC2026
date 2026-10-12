@@ -28,16 +28,21 @@ public class redAutoShoot extends OpMode {
     private shooterSubsystem shooter;
     private final PoseFactory poseFactory = PoseFactory.degrees();
 
-    private final Pose start = poseFactory.of(78.8828, 8.467, 90);
-    private final Pose path1 = poseFactory.of(78.8828, 31.797, 180);
-    private final Pose point2 = poseFactory.of(131.5215, 31.4472, 179.6192);
+    private final Pose start = poseFactory.of(56.02, 8.4102, 90);
+    private final Pose path1 = poseFactory.of(55.5514, 34.8571, 90);
+    private final Pose point2 = poseFactory.of(29.7272, 35.7385, 178.0452);
+    private final Pose point3 = poseFactory.of(11.9589, 113.801, 102.823);
 
     public Path path1() {
         return Paths.line(start, path1).linear(start, path1);
     }
 
     public Path path2() {
-        return Paths.line(path1, point2).reverseTangent();
+        return Paths.line(path1, point2).tangent();
+    }
+
+    public Path path3() {
+        return Paths.line(point2, point3).tangent();
     }
 
 
@@ -50,7 +55,9 @@ public class redAutoShoot extends OpMode {
                 instant(() -> shooter.setVelocity(0)),
 
 
-                follow(follower, path1()), follow(follower, path2()));
+                follow(follower, path1()),
+                follow(follower, path2()),
+                follow(follower, path3()));
     }
 
     @Override
@@ -59,6 +66,8 @@ public class redAutoShoot extends OpMode {
         follower = Constants.create(hardwareMap);
         follower.setPose(start);//sets the starting point of your Robot
         follower.update();
+
+        shooter = new shooterSubsystem(hardwareMap);
     }
     @Override
     public void start() {
