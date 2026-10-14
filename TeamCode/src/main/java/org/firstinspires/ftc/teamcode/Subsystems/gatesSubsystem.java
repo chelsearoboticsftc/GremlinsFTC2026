@@ -30,7 +30,7 @@ public class gatesSubsystem {
     private int motorSetPosition = 0;
     private double motorPower = 0;
 
-    private boolean servoSet = true;
+
 
     public gatesSubsystem(HardwareMap hardwareMap) {
         //Constructor for the SampleSubsystem class.  This code is called everytime you create
@@ -75,14 +75,13 @@ public class gatesSubsystem {
         motorName.setPower(power);
     }
 
-    public void setServoTarget(){
+    public void setServoTarget(boolean servoSet){
         if (servoSet == true){
             pollenR.setPosition(POLLEN_R_UP_POSITION);
             pollenL.setPosition(POLLEN_L_UP_POSITION);
             nectarR.setPosition(NECTAR_R_UP_POSITION);
             nectarL.setPosition(NECTAR_L_UP_POSITION);
 
-            servoSet = false;
         }
 
         if (servoSet == false){
@@ -91,7 +90,6 @@ public class gatesSubsystem {
             nectarR.setPosition(NECTAR_R_DOWN_POSITION);
             nectarL.setPosition(NECTAR_L_DOWN_POSITION);
 
-            servoSet = true;
         }
     }
 
