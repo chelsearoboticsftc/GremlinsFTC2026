@@ -61,16 +61,13 @@ public class TeleOp1 extends OpMode {
         }
 
         if (gamepad2.rightBumperWasPressed()){
-            gateServo.setServoTarget();
+            gateServo.setServoTarget(true);
         }
 
         if (gamepad2.rightBumperWasReleased()){
-            gateServo.setServoTarget();
+            gateServo.setServoTarget(false);
         }
 
-
-        follower.manual(powers);
-        follower.update();
 
 
         follower.manual(powers);
