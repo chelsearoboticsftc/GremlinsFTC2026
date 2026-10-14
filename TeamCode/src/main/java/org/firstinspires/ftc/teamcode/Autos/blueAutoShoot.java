@@ -31,22 +31,15 @@ public class blueAutoShoot extends OpMode {
 
     private final PoseFactory poseFactory = PoseFactory.degrees();
 
-    private final Pose start = poseFactory.of(85.6447, 133.4902, 90);
-    private final Pose path1Start = poseFactory.of(85.6447, 133.4902, 270);
-    private final Pose path1 = poseFactory.of(86.2549, 111.4046, 270);
-    private final Pose point2 = poseFactory.of(113.1678, 110.5313, -1.8587);
-    private final Pose point3 = poseFactory.of(130.3569, 30.5707, 102.1323);
+    private final Pose start = poseFactory.of(94.7882, 134.4036, 270);
+    private final Pose path1Start = poseFactory.of(94.7882, 134.4036, 270);
+    private final Pose path1 = poseFactory.of(129.2693, 29.9117, 180);
+    private final Pose path1Control1 = poseFactory.of(140.253, 126.911, 0);
+    private final Pose path1Control2 = poseFactory.of(86.1654, 36.724, 0);
 
     public Path path1() {
-        return Paths.line(path1Start, path1).linear(path1Start, path1);
-    }
+        return Paths.curve(path1Start, path1Control1, path1Control2, path1).linear(path1Start, path1);
 
-    public Path path2() {
-        return Paths.line(path1, point2).tangent();
-    }
-
-    public Path path3() {
-        return Paths.line(point2, point3).reverseTangent();
     }
     private Command autoRoutine() {
         return sequential(
@@ -56,9 +49,7 @@ public class blueAutoShoot extends OpMode {
                 instant(() -> shooter.setVelocity(0)),
 
 
-                follow(follower, path1()),
-                follow(follower, path2()),
-                follow(follower, path3()));
+                follow(follower, path1()));
     }
 
     @Override
