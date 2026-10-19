@@ -23,8 +23,11 @@ public class redAutoPark extends OpMode {
     private Follower follower;
     private final PoseFactory poseFactory = PoseFactory.degrees();
 
-    private final Pose start = poseFactory.of(8.8333, 78.9835, 90);
-    private final Pose path1 = poseFactory.of(9.7673, 117.7244, 90);
+    private final Pose start = poseFactory.of(46.62, 8.7559, 90);
+    private final Pose path1Start = poseFactory.of(46.62, 8.7559, 90);
+    private final Pose path1 = poseFactory.of(5.8659, 103.9387, 0);
+    private final Pose path1Control1 = poseFactory.of(4.3129, 28.2583, 0);
+    private final Pose path1Control2 = poseFactory.of(52.1457, 89.3146, 0);
 
     public Path path1() {
         return Paths.line(start, path1).linear(start, path1);
