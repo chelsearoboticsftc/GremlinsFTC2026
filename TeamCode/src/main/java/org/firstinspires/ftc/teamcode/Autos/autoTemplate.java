@@ -17,7 +17,14 @@ import static com.pedropathing.ivy.pedro.PedroCommands.follow;
 
 @Autonomous
 public class autoTemplate extends OpMode {
+<<<<<<< Updated upstream
 
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1ec50031bd1ce81caed308b3a629e8198e69f056
+>>>>>>> Stashed changes
     private Follower follower;
     private final PoseFactory p = PoseFactory.degrees();
 
@@ -86,7 +93,57 @@ private Path park(){
     public void stop() {
         OpModeStorage.autonomousEndPose = follower.pose(); //saves your position in that file
     }
+<<<<<<< Updated upstream
 
+=======
+<<<<<<< HEAD
+import static com.pedropathing.api.Paths.*;
+import com.pedropathing.api.Paths;
+
+import com.pedropathing.api.PoseFactory;
+import com.pedropathing.math.Pose;
+import com.pedropathing.paths.Path;
+
+    public class Paths {
+
+        private final PoseFactory poseFactory = PoseFactory.degrees();
+
+        private final Pose start = poseFactory.of(56, 8, 90);
+        private final Pose path1 = poseFactory.of(56, 36, 180);
+        private final Pose point2 = poseFactory.of(23.2415, 36.3861, -0.6753);
+        private final Pose point3 = poseFactory.of(23.3768, 109.6715, -90.1058);
+        private final Pose point4 = poseFactory.of(116.6087, 109.0894, 179.6423);
+        private final Pose point5 = poseFactory.of(116.0386, 36.6304, 89.5493);
+        private final Pose point6 = poseFactory.of(56.6063, 35.9106, 0.6939);
+
+        public Path path1() {
+            return Paths.line(start, path1).linear(start, path1);
+        }
+
+        public Path path2() {
+            return Paths.line(path1, point2).reverseTangent();
+        }
+
+        public Path path3() {
+            return Paths.line(point2, point3).reverseTangent();
+        }
+
+        public Path path4() {
+            return Paths.line(point3, point4).reverseTangent();
+        }
+
+        public Path path5() {
+            return Paths.line(point4, point5).reverseTangent();
+        }
+
+        public Path path6() {
+            return Paths.line(point5, point6).reverseTangent();
+        }
+    }
+=======
+
+>>>>>>> 1ec50031bd1ce81caed308b3a629e8198e69f056
+>>>>>>> Stashed changes
 
 
 }
