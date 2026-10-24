@@ -53,7 +53,7 @@ public class TeleOp1 extends OpMode {
         }
 
         if (gamepad2.bWasPressed()) {
-            shooter.setVelocity(200);
+            shooter.setVelocity(1900);
         }
 
         if (gamepad2.bWasReleased()){
