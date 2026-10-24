@@ -75,18 +75,28 @@ public class gatesSubsystem {
         motorName.setPower(power);
     }
 
-    public void setServoTarget(boolean servoSet){
+    public void setServoTargetPollen(boolean servoSet){
         if (servoSet == true){
             pollenR.setPosition(POLLEN_R_UP_POSITION);
             pollenL.setPosition(POLLEN_L_UP_POSITION);
-            nectarR.setPosition(NECTAR_R_UP_POSITION);
-            nectarL.setPosition(NECTAR_L_UP_POSITION);
 
         }
 
         if (servoSet == false){
             pollenR.setPosition(POLLEN_R_DOWN_POSITION);
             pollenL.setPosition(POLLEN_L_DOWN_POSITION);
+
+        }
+    }
+
+    public void setServoTargetNectar(boolean servoSet){
+        if (servoSet == true){
+            nectarR.setPosition(NECTAR_R_UP_POSITION);
+            nectarL.setPosition(NECTAR_L_UP_POSITION);
+
+        }
+
+        if (servoSet == false){
             nectarR.setPosition(NECTAR_R_DOWN_POSITION);
             nectarL.setPosition(NECTAR_L_DOWN_POSITION);
 

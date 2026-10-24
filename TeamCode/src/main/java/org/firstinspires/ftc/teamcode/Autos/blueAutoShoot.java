@@ -30,25 +30,14 @@ public class blueAutoShoot extends OpMode {
     private IntakeSubsystem intake;
 
     private final PoseFactory poseFactory = PoseFactory.degrees();
+    private final Pose start = poseFactory.of(106.5449, 135.2433, 270);
+    private final Pose path1Start = poseFactory.of(106.5449, 135.2433, 270);
+    private final Pose path1 = poseFactory.of(140.6061, 13.9562, 180);
+    private final Pose path1Control1 = poseFactory.of(140.253, 126.911, 0);
+    private final Pose path1Control2 = poseFactory.of(86.1654, 36.724, 0);
 
-    private final Pose start = poseFactory.of(93.9429, 133.8569, 90);
-    private final Pose point1 = poseFactory.of(118.0778, 118.1689, 146.9756);
-    private final Pose point2 = poseFactory.of(117.6242, 48.0695, 89.6292);
-    private final Pose point3 = poseFactory.of(131.4263, 37.337, 142.1315);
 
     public Path path1() {
-        return Paths.line(start, point1).reverseTangent();
-    }
-
-    public Path path2() {
-        return Paths.line(point1, point2).reverseTangent();
-    }
-
-    public Path path3() {
-        return Paths.line(point2, point3).reverseTangent();
-    }
-    public Path path1() {
-        Pose path1Start;
         return Paths.curve(path1Start, path1Control1, path1Control2, path1).linear(path1Start, path1);
 
     }

@@ -26,6 +26,7 @@ public class DelanieAuto extends OpMode {
     private final PoseFactory poseFactory = PoseFactory.degrees();
     private final Pose scorePose = poseFactory.of(48, 48, 90);
     private final Pose parkPose = poseFactory.of(72, 48, 90);
+
     /* Creating a Line
 Let's break down the parts of the path quickly:
 line() creates a straight path from startPose to park.
@@ -53,9 +54,11 @@ Any Poses between them are control points that change the shape of the curve.
     private Path startToScore() {
         return line(startPose, scorePose).linear(startPose, scorePose);
     }
-    private Path park(){
+
+    private Path park() {
         return line(scorePose, parkPose).linear(scorePose, parkPose);
     }
+
     private Command autoRoutine() {
         return sequential(
                 follow(follower, startToScore()),
@@ -71,10 +74,12 @@ Any Poses between them are control points that change the shape of the curve.
         follower.setPose(startPose);//sets the starting point of your Robot
         follower.update();
     }
+
     @Override
     public void start() {
         schedule(autoRoutine());
     }
+
     @Override
     public void loop() {
         follower.update();
@@ -85,12 +90,6 @@ Any Poses between them are control points that change the shape of the curve.
     public void stop() {
         OpModeStorage.autonomousEndPose = follower.pose(); //saves your position in that file
     }
-import static com.pedropathing.api.Paths.*;
-import com.pedropathing.api.Paths;
-
-import com.pedropathing.api.PoseFactory;
-import com.pedropathing.math.Pose;
-import com.pedropathing.paths.Path;
 
     public class Paths {
 
@@ -104,30 +103,5 @@ import com.pedropathing.paths.Path;
         private final Pose point5 = poseFactory.of(116.0386, 36.6304, 89.5493);
         private final Pose point6 = poseFactory.of(56.6063, 35.9106, 0.6939);
 
-        public Path path1() {
-            return Paths.line(start, path1).linear(start, path1);
-        }
-
-        public Path path2() {
-            return Paths.line(path1, point2).reverseTangent();
-        }
-
-        public Path path3() {
-            return Paths.line(point2, point3).reverseTangent();
-        }
-
-        public Path path4() {
-            return Paths.line(point3, point4).reverseTangent();
-        }
-
-        public Path path5() {
-            return Paths.line(point4, point5).reverseTangent();
-        }
-
-        public Path path6() {
-            return Paths.line(point5, point6).reverseTangent();
-        }
     }
-
-
 }
