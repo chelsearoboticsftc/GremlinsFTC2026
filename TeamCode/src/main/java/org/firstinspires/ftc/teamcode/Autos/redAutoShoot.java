@@ -28,22 +28,17 @@ public class redAutoShoot extends OpMode {
     private shooterSubsystem shooter;
     private final PoseFactory poseFactory = PoseFactory.degrees();
 
-    private final Pose start = poseFactory.of(56.02, 8.4102, 90);
-    private final Pose path1 = poseFactory.of(55.5514, 34.8571, 90);
-    private final Pose point2 = poseFactory.of(29.7272, 35.7385, 178.0452);
-    private final Pose point3 = poseFactory.of(11.9589, 113.801, 102.823);
+    private final Pose start = poseFactory.of(46.62, 8.7559, 90);
+    private final Pose path1Start = poseFactory.of(46.62, 8.7559, 90);
+    private final Pose path1 = poseFactory.of(5.8659, 103.9387, 0);
+    private final Pose path1Control1 = poseFactory.of(4.3129, 28.2583, 0);
+    private final Pose path1Control2 = poseFactory.of(52.1457, 89.3146, 0);
 
     public Path path1() {
-        return Paths.line(start, path1).linear(start, path1);
+        return Paths.line(start,
+                path1).linear(start, path1);
     }
 
-    public Path path2() {
-        return Paths.line(path1, point2).tangent();
-    }
-
-    public Path path3() {
-        return Paths.line(point2, point3).tangent();
-    }
 
 
 
@@ -55,9 +50,7 @@ public class redAutoShoot extends OpMode {
                 instant(() -> shooter.setVelocity(0)),
 
 
-                follow(follower, path1()),
-                follow(follower, path2()),
-                follow(follower, path3()));
+                follow(follower, path1()));
     }
 
     @Override
