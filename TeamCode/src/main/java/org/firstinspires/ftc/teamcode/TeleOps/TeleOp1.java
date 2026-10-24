@@ -52,29 +52,48 @@ public class TeleOp1 extends OpMode {
             intake.setPower(0);
         }
 
-        if (gamepad2.bWasPressed()) {
-            shooter.setVelocity(3000);
+        if (gamepad2.xWasPressed()){
+            shooter.setVelocity(5000);
         }
 
-        if (gamepad2.bWasReleased()){
+        if (gamepad2.xWasReleased()){
             shooter.setVelocity(0);
         }
 
+
         if (gamepad2.rightBumperWasPressed()){
-            shooter.setVelocity(2700);
-            gateServo.setServoTargetPollen(true);
+            shooter.setVelocity(3000);
+            intake.setPower(1);
         }
 
         if (gamepad2.rightBumperWasReleased()){
             shooter.setVelocity(0);
+            intake.setPower(0);
+        }
+
+        if (gamepad2.yWasPressed()){
+            gateServo.setServoTargetPollen(true);
+        }
+
+        if (gamepad2.yWasReleased()){
             gateServo.setServoTargetPollen(false);
         }
 
         if (gamepad2.rightTriggerWasPressed()){
+            shooter.setVelocity(3000);
+            intake.setPower(1);
+        }
+
+        if (gamepad2.rightTriggerWasReleased()){
+            shooter.setVelocity(0);
+            intake.setPower(0);
+        }
+
+        if (gamepad2.bWasPressed()){
             gateServo.setServoTargetNectar(true);
         }
 
-        if (gamepad2.rightBumperWasReleased()){
+        if (gamepad2.bWasReleased()){
             gateServo.setServoTargetNectar(false);
         }
 
