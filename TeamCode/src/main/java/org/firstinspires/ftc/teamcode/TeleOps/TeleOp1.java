@@ -12,7 +12,7 @@ import org.firstinspires.ftc.teamcode.Subsystems.IntakeSubsystem;
 import org.firstinspires.ftc.teamcode.Subsystems.shooterSubsystem;
 import org.firstinspires.ftc.teamcode.Subsystems.gatesSubsystem;
 
-@TeleOp(name = "RoboCentric TeleOp")
+@TeleOp(name = "TeleOp1")
 public class TeleOp1 extends OpMode {
 
     private IntakeSubsystem intake;
@@ -52,8 +52,8 @@ public class TeleOp1 extends OpMode {
             intake.setPower(0);
         }
 
-        if (gamepad2.xWasPressed()){
-            shooter.setVelocity(5000);
+        if (gamepad2.xWasPressed()) {
+            shooter.setVelocity(3000);
         }
 
         if (gamepad2.xWasReleased()){
@@ -105,5 +105,7 @@ public class TeleOp1 extends OpMode {
         telemetry.addData("Robot X", robotPose.x());
         telemetry.addData("Robot Y", robotPose.y());
         telemetry.addData("Robot Heading", Math.toDegrees(robotPose.heading()));
+        telemetry.addData("NVelocity", shooter.getNVelocity());
+        telemetry.addData("pShooter", shooter.getPVelocity());
     }
 }

@@ -29,6 +29,14 @@ public class shooterSubsystem {
         pShooter.setVelocity(Velocity);
     }
 
+    public double getNVelocity(){
+        return nShooter.getVelocity();
+    }
+
+    public double getPVelocity(){
+        return pShooter.getVelocity();
+    }
+
 }
 
 
