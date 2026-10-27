@@ -22,8 +22,8 @@ public class gatesSubsystemConstants {
     public static double POLLEN_L_DOWN_POSITION = 0;
     public static double POLLEN_L_UP_POSITION = 0.17;
     public static double NECTAR_R_DOWN_POSITION = 0;
-    public static double NECTAR_R_UP_POSITION = 0.4;
-    public static double NECTAR_L_DOWN_POSITION = 0;
-    public static double NECTAR_L_UP_POSITION = .4;
+    public static double NECTAR_R_UP_POSITION = 0.3;
+    public static double NECTAR_L_DOWN_POSITION = 0.5;
+    public static double NECTAR_L_UP_POSITION = 0.2;
 
 }
