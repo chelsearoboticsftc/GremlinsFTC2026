@@ -27,4 +27,3 @@ public class gatesSubsystemConstants {
     public static double NECTAR_L_UP_POSITION = 0.2;
 
 }
-

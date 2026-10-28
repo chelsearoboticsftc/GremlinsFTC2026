@@ -16,7 +16,8 @@ import org.firstinspires.ftc.teamcode.Subsystems.gatesSubsystem;
 public class TeleOp1 extends OpMode {
 
     private IntakeSubsystem intake;
-    private shooterSubsystem shooter;
+    private shooterSubsystem nShooter;
+    private shooterSubsystem pShooter;
 
     private gatesSubsystem gateServo;
 
@@ -31,7 +32,8 @@ public class TeleOp1 extends OpMode {
     public void init() {
         follower = Constants.create(hardwareMap);
         intake = new IntakeSubsystem(hardwareMap);
-        shooter = new shooterSubsystem(hardwareMap);
+        nShooter = new shooterSubsystem(hardwareMap);
+        pShooter = new shooterSubsystem(hardwareMap);
         gateServo = new gatesSubsystem(hardwareMap);
     }
 
@@ -52,25 +54,6 @@ public class TeleOp1 extends OpMode {
             intake.setPower(0);
         }
 
-        if (gamepad2.xWasPressed()) {
-            shooter.setVelocity(3000);
-        }
-
-        if (gamepad2.xWasReleased()){
-            shooter.setVelocity(0);
-        }
-
-
-        if (gamepad2.rightBumperWasPressed()){
-            shooter.setVelocity(3000);
-            intake.setPower(1);
-        }
-
-        if (gamepad2.rightBumperWasReleased()){
-            shooter.setVelocity(0);
-            intake.setPower(0);
-        }
-
         if (gamepad2.yWasPressed()){
             gateServo.setServoTargetPollen(true);
         }
@@ -79,14 +62,19 @@ public class TeleOp1 extends OpMode {
             gateServo.setServoTargetPollen(false);
         }
 
-        if (gamepad2.rightTriggerWasPressed()){
-            shooter.setVelocity(3000);
-            intake.setPower(1);
+        if (gamepad2.rightBumperWasPressed()){
+            nShooter.setVelocity(1100);
         }
 
-        if (gamepad2.rightTriggerWasReleased()){
-            shooter.setVelocity(0);
-            intake.setPower(0);
+        if (gamepad2.rightBumperWasReleased()){
+            nShooter.setVelocity(0);
+        }
+        if (gamepad2.leftBumperWasPressed()){
+            pShooter.setVelocity(1100);;
+        }
+
+        if (gamepad2.leftBumperWasReleased()){
+            pShooter.setVelocity(0);
         }
 
         if (gamepad2.bWasPressed()){
@@ -105,7 +93,7 @@ public class TeleOp1 extends OpMode {
         telemetry.addData("Robot X", robotPose.x());
         telemetry.addData("Robot Y", robotPose.y());
         telemetry.addData("Robot Heading", Math.toDegrees(robotPose.heading()));
-        telemetry.addData("NVelocity", shooter.getNVelocity());
-        telemetry.addData("pShooter", shooter.getPVelocity());
+        telemetry.addData("NVelocity", nShooter.getNVelocity());
+        telemetry.addData("pShooter", pShooter.getPVelocity());
     }
 }

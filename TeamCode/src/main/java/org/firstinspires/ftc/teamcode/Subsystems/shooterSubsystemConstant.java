@@ -8,7 +8,7 @@ public class shooterSubsystemConstant {
     static DcMotor.ZeroPowerBehavior P_SHOOTER_ZERO_POWER_BEHAVIOR = DcMotor.ZeroPowerBehavior.BRAKE;
 
     public static final DcMotorSimple.Direction N_SHOOTER_DIRECTION = DcMotorSimple.Direction.FORWARD;
-    public static final DcMotorSimple.Direction P_SHOOTER_DIRECTION = DcMotorSimple.Direction.REVERSE;
+    public static final DcMotorSimple.Direction P_SHOOTER_DIRECTION = DcMotorSimple.Direction.FORWARD;
 }
 
 
