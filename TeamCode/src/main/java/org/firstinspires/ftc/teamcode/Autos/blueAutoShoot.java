@@ -44,9 +44,9 @@ public class blueAutoShoot extends OpMode {
     private Command autoRoutine() {
         return sequential(
 
-                instant(() -> shooter.setVelocity(2000)),
+                instant(() -> shooter.setNVelocity(2000)),
                 waitMs(3000),
-                instant(() -> shooter.setVelocity(0)),
+                instant(() -> shooter.setNVelocity(0)),
 
 
                 follow(follower, path1()));

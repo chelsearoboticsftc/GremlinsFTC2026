@@ -16,8 +16,7 @@ import org.firstinspires.ftc.teamcode.Subsystems.gatesSubsystem;
 public class TeleOp1 extends OpMode {
 
     private IntakeSubsystem intake;
-    private shooterSubsystem nShooter;
-    private shooterSubsystem pShooter;
+    private shooterSubsystem shooter;
 
     private gatesSubsystem gateServo;
 
@@ -32,8 +31,7 @@ public class TeleOp1 extends OpMode {
     public void init() {
         follower = Constants.create(hardwareMap);
         intake = new IntakeSubsystem(hardwareMap);
-        nShooter = new shooterSubsystem(hardwareMap);
-        pShooter = new shooterSubsystem(hardwareMap);
+        shooter = new shooterSubsystem(hardwareMap);
         gateServo = new gatesSubsystem(hardwareMap);
     }
 
@@ -47,7 +45,7 @@ public class TeleOp1 extends OpMode {
         );
 
         if (gamepad2.aWasPressed()){
-            intake.setPower(1);
+            intake.setPower(0.7);
         }
 
         if (gamepad2.aWasReleased()){
@@ -63,18 +61,18 @@ public class TeleOp1 extends OpMode {
         }
 
         if (gamepad2.rightBumperWasPressed()){
-            nShooter.setVelocity(1100);
+            shooter.setNVelocity(2850);
         }
 
         if (gamepad2.rightBumperWasReleased()){
-            nShooter.setVelocity(0);
+            shooter.setNVelocity(0);
         }
         if (gamepad2.leftBumperWasPressed()){
-            pShooter.setVelocity(1100);;
+            shooter.setPVelocity(2500);;
         }
 
         if (gamepad2.leftBumperWasReleased()){
-            pShooter.setVelocity(0);
+            shooter.setPVelocity(0);
         }
 
         if (gamepad2.bWasPressed()){
@@ -93,7 +91,7 @@ public class TeleOp1 extends OpMode {
         telemetry.addData("Robot X", robotPose.x());
         telemetry.addData("Robot Y", robotPose.y());
         telemetry.addData("Robot Heading", Math.toDegrees(robotPose.heading()));
-        telemetry.addData("NVelocity", nShooter.getNVelocity());
-        telemetry.addData("pShooter", pShooter.getPVelocity());
+        telemetry.addData("NVelocity", shooter.getNVelocity());
+        telemetry.addData("pShooter", shooter.getPVelocity());
     }
 }

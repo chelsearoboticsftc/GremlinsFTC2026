@@ -24,9 +24,13 @@ public class shooterSubsystem {
         pShooter.setDirection(shooterSubsystemConstant.P_SHOOTER_DIRECTION);
     }
 
-    public void setVelocity(double Velocity) {
+    public void setNVelocity(double Velocity) {
         nShooter.setVelocity(Velocity);
+
+    }
+    public void setPVelocity(double Velocity) {
         pShooter.setVelocity(Velocity);
+
     }
 
     public double getNVelocity(){
