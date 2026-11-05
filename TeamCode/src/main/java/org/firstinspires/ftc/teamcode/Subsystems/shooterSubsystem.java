@@ -22,6 +22,19 @@ public class shooterSubsystem {
 
         nShooter.setDirection(shooterSubsystemConstant.N_SHOOTER_DIRECTION);
         pShooter.setDirection(shooterSubsystemConstant.P_SHOOTER_DIRECTION);
+
+        pShooter.setVelocityPIDFCoefficients(
+                shooterSubsystemConstant.P_SHOOTER_VELOCITY_P, //Proportional Gain
+                shooterSubsystemConstant.P_SHOOTER_VELOCITY_I, //Integral Gain
+                shooterSubsystemConstant.P_SHOOTER_VELOCITY_D, //Derivative Gain
+                shooterSubsystemConstant.P_SHOOTER_VELOCITY_F);//Feed Forward Gain
+
+         nShooter.setVelocityPIDFCoefficients(
+                shooterSubsystemConstant.N_SHOOTER_VELOCITY_P, //Proportional Gain
+                shooterSubsystemConstant.N_SHOOTER_VELOCITY_I, //Integral Gain
+                shooterSubsystemConstant.N_SHOOTER_VELOCITY_D, //Derivative Gain
+                shooterSubsystemConstant.N_SHOOTER_VELOCITY_F);//Feed Forward Gain
+
     }
 
     public void setNVelocity(double Velocity) {
