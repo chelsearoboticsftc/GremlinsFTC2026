@@ -64,7 +64,7 @@ public class lilyAuto extends OpMode {
     @Override
     public void init() {
         Scheduler.reset();
-        follower = Constants.create(hardwareMap);
+        //follower = Constants.create(hardwareMap);
         follower.setPose(start);//sets the starting point of your Robot
         follower.update();
     }

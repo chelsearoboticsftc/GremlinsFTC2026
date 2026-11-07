@@ -74,7 +74,7 @@ public class VI_Auto extends OpMode {
     @Override
     public void init() {
         Scheduler.reset();
-        follower = Constants.create(hardwareMap);
+        //follower = Constants.create(hardwareMap);
         follower.setPose(path1);//sets the starting point of your Robot
         follower.update();
     }

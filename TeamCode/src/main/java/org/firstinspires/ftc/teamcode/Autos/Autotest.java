@@ -46,7 +46,7 @@ public class Autotest extends LinearOpMode {
     @Override
     public void runOpMode() {
         Scheduler.reset();
-        follower = Constants.create(hardwareMap);
+        //follower = Constants.create(hardwareMap);
         follower.setPose(start);
         follower.update();
 

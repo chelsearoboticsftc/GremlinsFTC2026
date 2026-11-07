@@ -70,7 +70,7 @@ Any Poses between them are control points that change the shape of the curve.
     @Override
     public void init() {
         Scheduler.reset();
-        follower = Constants.create(hardwareMap);
+        //follower = Constants.create(hardwareMap);
         follower.setPose(startPose);//sets the starting point of your Robot
         follower.update();
     }
