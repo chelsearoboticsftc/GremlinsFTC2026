@@ -61,14 +61,14 @@ public class TeleOp1 extends OpMode {
         }
 
         if (gamepad2.rightBumperWasPressed()){
-            shooter.setNVelocity(1500);
+            shooter.setNVelocity(1650);
         }
 
         if (gamepad2.rightBumperWasReleased()){
             shooter.setNVelocity(0);
         }
         if (gamepad2.leftBumperWasPressed()){
-            shooter.setPVelocity(1500);
+            shooter.setPVelocity(1950);
         }
 
         if (gamepad2.leftBumperWasReleased()){
