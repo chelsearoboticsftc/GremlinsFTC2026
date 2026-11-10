@@ -29,7 +29,7 @@ public class TeleOp1 extends OpMode {
     }
     @Override
     public void init() {
-        //follower = Constants.create(hardwareMap);
+        follower = Constants.create(hardwareMap);
         intake = new IntakeSubsystem(hardwareMap);
         shooter = new shooterSubsystem(hardwareMap);
         gateServo = new gatesSubsystem(hardwareMap);
