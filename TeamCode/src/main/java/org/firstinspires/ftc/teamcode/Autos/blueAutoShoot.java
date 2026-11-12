@@ -19,6 +19,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import org.firstinspires.ftc.teamcode.OpModeStorage;
 import org.firstinspires.ftc.teamcode.Subsystems.IntakeSubsystem;
 import org.firstinspires.ftc.teamcode.Subsystems.shooterSubsystem;
+import org.firstinspires.ftc.teamcode.Subsystems.gatesSubsystem;
 import org.firstinspires.ftc.teamcode.pedro.Constants;
 
 @Autonomous
@@ -28,6 +29,8 @@ public class blueAutoShoot extends OpMode {
 
     private shooterSubsystem shooter;
     private IntakeSubsystem intake;
+
+    private gatesSubsystem gateServo;
 
     private final PoseFactory poseFactory = PoseFactory.degrees();
     private final Pose start = poseFactory.of(106.5449, 135.2433, 270);
@@ -44,11 +47,12 @@ public class blueAutoShoot extends OpMode {
     private Command autoRoutine() {
         return sequential(
 
-                instant(() -> shooter.setNVelocity(2000)),
-                waitMs(3000),
-                instant(() -> shooter.setNVelocity(0)),
-
-
+                instant(() -> shooter.setPVelocity(1650)),
+                waitMs(1000),
+                instant(() -> gateServo.setServoTargetPollen(true)),
+                waitMs(2000),
+                instant(() -> shooter.setPVelocity(0)),
+                instant(() -> gateServo.setServoTargetPollen(false)),
                 follow(follower, path1()));
     }
 

@@ -44,6 +44,17 @@ public class TeleOp1 extends OpMode {
                 follower.pose().heading()
         );
 
+        if (gamepad1.yWasPressed()){
+            //lines up the driving for robot on red side
+//            Math.toRadians(180);
+            follower.setPose(new Pose(8,8,0));
+        }
+
+        if (gamepad1.xWasPressed()){
+            //lines up the driving for robot on the red side
+            follower.setPose(new Pose(137.5,137.5, 180));
+        }
+
         if (gamepad2.aWasPressed()){
             intake.setPower(0.7);
         }
