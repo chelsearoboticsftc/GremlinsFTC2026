@@ -11,6 +11,7 @@ import com.pedropathing.follower.ManualDrive;
 import org.firstinspires.ftc.teamcode.Subsystems.IntakeSubsystem;
 import org.firstinspires.ftc.teamcode.Subsystems.shooterSubsystem;
 import org.firstinspires.ftc.teamcode.Subsystems.gatesSubsystem;
+import org.firstinspires.ftc.teamcode.Subsystems.shieldSubsystem;
 
 @TeleOp(name = "TeleOp1")
 public class TeleOp1 extends OpMode {
@@ -19,6 +20,7 @@ public class TeleOp1 extends OpMode {
     private shooterSubsystem shooter;
 
     private gatesSubsystem gateServo;
+    private shieldSubsystem shield;
 
 
     private Follower follower;
@@ -33,6 +35,7 @@ public class TeleOp1 extends OpMode {
         intake = new IntakeSubsystem(hardwareMap);
         shooter = new shooterSubsystem(hardwareMap);
         gateServo = new gatesSubsystem(hardwareMap);
+        shield = new shieldSubsystem(hardwareMap);
     }
 
     @Override
@@ -69,6 +72,14 @@ public class TeleOp1 extends OpMode {
 
         if (gamepad2.yWasReleased()){
             gateServo.setServoTargetPollen(false);
+        }
+
+        if (gamepad1.aWasPressed()){
+            shield.setServoTargetShield(true);
+        }
+
+        if (gamepad1.bWasPressed()){
+            shield.setServoTargetShield(false);
         }
 
         if (gamepad2.rightBumperWasPressed()){
