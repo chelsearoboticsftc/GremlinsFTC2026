@@ -6,7 +6,7 @@ import static org.firstinspires.ftc.teamcode.Subsystems.shieldSubsystemConstants
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.CRServo;
 
 public class shieldSubsystem {
 
@@ -14,7 +14,7 @@ public class shieldSubsystem {
 
     //Example declare a DcMotorEx object as part of this class called 'motorName'
     DcMotorEx motorName;
-    Servo shield;
+    CRServo shield;
 
 
     //Declare any other global variables for this class here
@@ -34,7 +34,7 @@ public class shieldSubsystem {
         //configuration exactly.  This is the connection with the Control Hub Config
 
         //Example code defining a DcMotor object to a motor in the config called "motorName"
-        this.shield = hardwareMap.get(Servo.class, "shield");
+        this.shield = hardwareMap.get(CRServo.class, "shield");
     }
 
     public void setMotorPosition(int position){
@@ -65,12 +65,12 @@ public class shieldSubsystem {
 
     public void setServoTargetShield(boolean servoSet){
         if (servoSet == true){
-            shield.setPosition(SHIELD_UP_POSITION);
+            shield.setPower(SHIELD_DOWN_POSITION);
 
         }
 
         if (servoSet == false){
-            shield.setPosition(SHIELD_DOWN_POSITION);
+            shield.setPower(SHIELD_UP_POSITION);
 
         }
     }
