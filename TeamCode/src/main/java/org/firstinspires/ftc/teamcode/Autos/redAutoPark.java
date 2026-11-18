@@ -23,14 +23,11 @@ public class redAutoPark extends OpMode {
     private Follower follower;
     private final PoseFactory poseFactory = PoseFactory.degrees();
 
-    private final Pose start = poseFactory.of(46.62, 8.7559, 90);
-    private final Pose path1Start = poseFactory.of(46.62, 8.7559, 90);
-    private final Pose path1 = poseFactory.of(5.8659, 103.9387, 0);
-    private final Pose path1Control1 = poseFactory.of(4.3129, 28.2583, 0);
-    private final Pose path1Control2 = poseFactory.of(52.1457, 89.3146, 0);
+    private final Pose start = poseFactory.of(9.0517, 133.0133, 90);
+    private final Pose point1 = poseFactory.of(11.1563, 117.197, 0);
 
     public Path path1() {
-        return Paths.line(start, path1).linear(start, path1);
+        return Paths.line(start, point1).constant(point1);
     }
 
        private Command autoRoutine() {
@@ -42,7 +39,7 @@ public class redAutoPark extends OpMode {
     @Override
     public void init() {
         Scheduler.reset();
-        //follower = Constants.create(hardwareMap);
+        follower = Constants.create(hardwareMap);
         follower.setPose(start);//sets the starting point of your Robot
         follower.update();
     }
